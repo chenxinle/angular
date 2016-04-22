@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		'use strict'
+		// class test {
+		// 	constructor() {
+		// 		this.bb = 'bbb';
+		// 		this.aa = 'aa';
+		// 	}
+		// 	get aaa() {
+		// 		return this.bb + 'test';
+		// 	}
+		// 	// set aaa(val) {
+		// 	// 	this.bb += val;
+		// 	// }
+		// }
+		// var testArr = new test();
+		var obj = {
+			aa: 'aaa'
+		}
+		Object.defineProperty(obj,'bb',{
+			get: function() {
+				return this.aa + 'test';
+			},
+			set: function(val) {
+				this.aa = val + '11';
+			}
+		});
+		obj.bb = 22;
+		console.log(obj.bb,obj.aa);
+		// testArr.aaa = '11';
+		// console.log(testArr.aaa);
+	</script>
+</body>
+</html>

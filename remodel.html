@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		'use strict';
+		class Model{
+			constructor(config){
+				let computed = config.computed;
+				return function Model(data) {
+					var self = this
+					Object.keys(computed).forEach(function(k){
+						let computeFunc = computed[k];
+						Object.defineProperty(Model.prototype, k, {
+							get: function(){
+								return computeFunc;
+							}
+						})	
+					});
+				}
+			}
+		}
+		
+		let Activity = new Model({
+			computed: {
+				duration: function () {
+					return '[' + this.num + ']'
+				}
+			}
+		})
+
+		var activity = new Activity({
+			abc: 'abc',
+			num: 999,
+			duration: 123123123123
+		});
+		console.log('duration', activity.duration, activity.num, activity.abc);
+	</script>
+</body>
+</html>

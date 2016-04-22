@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		'use strict';
+		class Model{
+			constructor(config){
+				let props = config.props
+				let computed = config.computed
+				let Model = function () {}
+
+				return function Model(data) {
+					var self = this
+					props.concat(Object.keys(computed)).forEach(function(k){
+						let staticData = data[k]
+						let computeFunc = computed[k]
+						Object.defineProperty(Model.prototype, k, {
+							get: function(){
+								return computeFunc ? computeFunc.apply(this) : staticData
+							}
+						})	
+					});
+				}
+			}
+		}
+		
+		let Activity = new Model({
+			props: ['num'],
+			computed: {
+				duration: function () {
+					return '[' + this.num + ']'
+				}
+			}
+		})
+
+		var activity = new Activity({
+			abc: 'abc',
+			num: 999,
+			duration: 123123123123
+		});
+		console.log('duration', activity.duration, activity.num, activity.abc);
+	</script>
+</body>
+</html>

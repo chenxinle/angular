@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript" src="moment.js"></script>
+	<script type="text/javascript">
+		var time = new Date().getTime();
+		console.log(time,moment(time).format('YYYY MM DD HH:mm:ss'));
+		var selfTime = 15 * 60 * 1000;
+		console.log(moment(selfTime).format('mm:ss'));
+		var Time = '00:' + moment(selfTime).format('mm:ss');
+		console.log(Time);
+		// setInterval(function() {
+		// 	selfTime -= 1000;
+		// 	console.log('00:' + moment(selfTime).format('mm:ss'));
+		// },1000)
+	</script>
+</body>
+</html>

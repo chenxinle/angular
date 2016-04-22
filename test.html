@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript" src='event.js'></script>
+	<script type="text/javascript">
+		function test() {
+			this.x = 1;
+		}
+		var Test = new test();
+		mixin(Test);
+		Test.on('test',function() {
+			console.log('test');
+		});
+		Test.onclick = function() {
+			console.log(1);
+		};
+		console.log(Test.events);
+		// Test.emit('test');
+	</script>
+</body>
+</html>
