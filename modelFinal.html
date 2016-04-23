@@ -6,38 +6,31 @@
 </head>
 <body>
 	<script type="text/javascript">
-		'use strict';
 		class Model {
-			constructor(data) {
-				this.data = data;
-			}
-			getData() {
-				for (var key in this.data) {
-					if (!this.getterMethods[key]) {
-						this[key] = this.data[key];
+			constructor(data, computed) {
+				for (var key in data) {
+					if (!computed[key]) {
+						this[key] = data[key];
 					}
 				}
-				for (var key in this.getterMethods) {
+				for (var key in computed) {
 					Object.defineProperty(this, key, {
-						get: this.getterMethods[key]
+						get: computed[key]
 					});
 				}
 			}
 		}
+
 		class Activity extends Model{
 			constructor(data) {
-				super(data);
-				// var self = this;
-				this.getterMethods = {
+				super(data, {
 					duration: function() {
+						console.log(this)
 						return '[' + this.abc + ']';
-					}
-				};
-				this.getData();
+					}	
+				});
 			}
 		}
-		
-
 		var activity = new Activity({
 			abc: '11',
 			num: 999,

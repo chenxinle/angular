@@ -9,9 +9,6 @@
 		'use strict';
 		class Model {
 			constructor(data) {
-				this.data = data;
-			}
-			getData() {
 				for (var key in this.data) {
 					if (!this.getterMethods[key]) {
 						this[key] = this.data[key];
@@ -27,13 +24,12 @@
 		class Activity extends Model{
 			constructor(data) {
 				super(data);
-				// var self = this;
+				var self = this;
 				this.getterMethods = {
 					duration: function() {
-						return '[' + this.abc + ']';
+						return '[' + self.abc + ']';
 					}
 				};
-				this.getData();
 			}
 		}
 		

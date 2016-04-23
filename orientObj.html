@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function Model(data) {
+			this.data = data;
+		}
+		Model.prototype.getData = function() {
+			for (var key in this.data) {
+				if (!this.getMethod[key]) {
+					this[key] = this.data[key];
+				}
+			}
+			for (var key in this.getMethod) {
+				Object.defineProperty(this, key, {
+					get: this.getMethod[key]
+				});
+			}
+		}
+		function Activity(data) {
+			var self = this;
+			Model.call(this,data);
+			this.getMethod = {
+				duration: function() {
+					return '[' + self.abc + ']';
+				}
+			};
+			this.getData();
+		}
+		Activity.prototype = new Model();
+
+		var activity = new Activity({
+			abc: '22',
+			num: 999,
+			duration: 123123123123
+		});
+		console.log('duration', activity.duration, activity.num, activity.abc);
+
+
+
+
+
+	</script>
+</body>
+</html>
