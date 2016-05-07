@@ -1,3 +1,4 @@
-function todoCtrl($scope) {
-	$scope.totalTodos = 4;
-}
+angular.module('app', [])
+	.controller('todoCtrl', function($scope) {
+		$scope.totalTodos = 4;
+	})
