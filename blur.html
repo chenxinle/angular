@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input id='input1' type='search' />
+	<botton id='button1'>button</botton>
+	<!-- <script type="text/javascript" src="jquery-1.12.3.js"></script> -->
+	<script type="text/javascript" src="zepto.min.js"></script>
+	<script type="text/javascript">
+		// $('#input1').on('blur', function() {
+		// 	console.log('blur');
+		// });
+		// $('#button1').on('click',function() {
+		// 	console.log('click');
+		// 	$('#input1').blur();
+		// });
+		$('#input1').blur(function() {
+			console.log(1);
+		});
+	</script>
+</body>
+</html>

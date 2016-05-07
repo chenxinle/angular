@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function Obj() {
+			this.x = 1;
+		}
+		Obj.prototype.getData = function() {
+			return function() {
+				console.log(this.x);
+			}
+		}
+		// Obj.prototype.getData = function() {
+		// 	return () => {
+		// 		console.log(this.x);
+		// 	}
+		// }
+		var obj = new Obj();
+		obj.getData()();
+	</script>
+</body>
+</html>

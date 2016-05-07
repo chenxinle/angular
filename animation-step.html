@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript" src="zepto.min.js"></script>
+	<script type="text/javascript">
+		$( "li" ).animate({
+		  opacity: .5,
+		  height: "50%"
+		}, {
+		  step: function( now, fx ) {
+		    var data = fx.elem.id + " " + fx.prop + ": " + now;
+		    $( "body" ).append( "<div>" + data + "</div>" );
+		  }
+		});
+	</script>
+</body>
+</html>
