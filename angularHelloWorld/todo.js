@@ -2,7 +2,7 @@ angular.module('app', [])
 	.controller('todoCtrl', function($scope) {
 		$scope.todoList = [
 			{text: 'learn angularJs', done: false}, 
-			{text: 'build app', done: false}, 
+			{text: 'build app', done: false},
 			{text: 'learn gulp', done: false}
 		];
 		$scope.getTotalTodos = function() {

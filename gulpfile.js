@@ -9,5 +9,5 @@ gulp.task('serve', function() {
     }
   });
 
-  gulp.watch(['*.html', '*.css', '*.js']).on("change", reload);
+  gulp.watch(['./**/*.html', './**/*.css', './**/*.js']).on("change", reload);
 });
